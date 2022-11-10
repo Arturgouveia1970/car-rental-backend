@@ -17,13 +17,18 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  username: postgres
+  password: Eduardo1!@
+  host: localhost
+
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-
 development:
   <<: *default
   database: car_rental_development
+  username: postgres
+  password: Eduardo1!@
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -58,6 +63,8 @@ development:
 test:
   <<: *default
   database: car_rental_test
+  username: postgres
+  password: Eduardo1!@
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -79,8 +86,8 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
-production:
-  <<: *default
-  database: car_rental_production
-  username: car_rental
-  password: <%= ENV["CAR_RENTAL_DATABASE_PASSWORD"] %>
+#production:
+#  <<: *default
+#  database: car_rental_production
+#  username: car_rental
+#  password: <%= ENV["CAR_RENTAL_DATABASE_PASSWORD"] %>

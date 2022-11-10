@@ -3,7 +3,7 @@
 > Car Rental Backend is a rails backend application for booking Cars. This application serves as API endpoints for the frontend and users can load, create, and delete Cars, as well as add reservations. Users need to sign up or sign in to access the API endponits. They can sign up or sign in using the API endponts.
 
 ## Schema
-![](image soon)
+![](./app/assets/images/diagram.png)
 
 ### Front-End Repository
 
