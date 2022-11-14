@@ -148,7 +148,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 -  We acknowledge with appreciation the original design provided by Murat Korkmaz on Behance.
-- Inspiration: Microverse
+- Inspiration: Microverse.
 
 ## 📝 License
 
