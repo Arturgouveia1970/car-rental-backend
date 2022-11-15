@@ -14,7 +14,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '739c411e070b4b68093a908ccd003910bdbb059e7ca3378cbe559344e3764ca662da79479511ae414997bf585b6cca73b9002ee6c29e236b938a4a940f732197'
+  # config.secret_key = 'f764d61ab75dd2f1aa11c93aa04e1a83d9788ef3450b749535ee9a3902af7964d5bd68a62f4407b134e68a2dd24568921d8271c22e7678a39ba466f1d5f513e9'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -126,7 +126,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '1292306ec4f144e16d5c254e6bae779d9b43f6e1c51001255f2060968339ed282283bb118f93e6788c20ebae44d8875fb6706578569cc7c29ec61305c9d9ec76'
+  # config.pepper = '8ba6e03539bd34a386add5220624ffe4d11a7980199be8c931a976b12c376514b7a33825eed5b93408e72ce1f401ffe4bba41f934032adaf8fea00273826bd08'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -263,7 +263,7 @@ Devise.setup do |config|
   # should add them to the navigational formats lists.
   #
   # The "*/*" below is required to match Internet Explorer requests.
-  # config.navigational_formats = ['*/*', :html]
+  config.navigational_formats = []
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
@@ -272,6 +272,14 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+
+  config.jwt do |jwt|
+    jwt.secret = 'eyJhbGciOiJIUzI1NiJ9.eyJleGFtcGxlIjoiZGF0YSJ9.r32JslR5aN9JBEowsXwpEYwYLL7BS3j3dqlKDHYO7_A'
+    #jwt.secret = Rails.application.credentials.devise[:jwt_secret_key]
+    jwt.dispatch_requests = [['POST', %r{^/users/sign_in$}]]
+    jwt.revocation_requests = [['DELETE', %r{^/users/sign_out}]]
+    jwt.expiration_time = 24.hours.to_i
+  end
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
