@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   }
 
   namespace :api do
-    resources :users, only:  [:index, :show] do
+    namespace :v1 do
+      resources :users, only:  [:index, :show] do
+      end
     end
   end
 end
