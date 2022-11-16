@@ -1,5 +1,4 @@
 class Api::V1::CarsController < ApplicationController
-  
   def index
     @cars = Car.all
     render json: { status: 'Success', message: 'loaded cars', cars: @cars }, status: :ok
@@ -10,7 +9,7 @@ class Api::V1::CarsController < ApplicationController
     # @reservations = @car.reservations.order(created_at: :desc)
     # render json: { status: 'Success', message: 'loaded car', car: @car, reservations: @reservations },
     #        status: :ok
-   
+
     @car = Car.find(params[:id])
     if @car
       render json: @car, include: [:reservations]
@@ -18,7 +17,6 @@ class Api::V1::CarsController < ApplicationController
       render json: { message: 'Unable to find @car', errors: @cars.errors.full_messages },
              status: :unprocessable_entity
     end
-
   end
 
   def create
