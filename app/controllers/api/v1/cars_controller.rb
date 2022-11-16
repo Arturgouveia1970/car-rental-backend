@@ -1,14 +1,24 @@
-class Api::V1::CarsController < applicationController
+class Api::V1::CarsController < ApplicationController
+  
   def index
-    @cars = Cars.all
+    @cars = Car.all
     render json: { status: 'Success', message: 'loaded cars', cars: @cars }, status: :ok
   end
 
   def show
-    @cars = Car.includes(:reservations).find(params[:id])
-    @reservations = @car.reservations.order(created_at: :desc)
-    render json: { status: 'Success', message: 'loaded car', car: @car, reservations: @reservations },
-           status: :ok
+    # @car = Car.includes(:reservations).find(params[:id])
+    # @reservations = @car.reservations.order(created_at: :desc)
+    # render json: { status: 'Success', message: 'loaded car', car: @car, reservations: @reservations },
+    #        status: :ok
+   
+    @car = Car.find(params[:id])
+    if @car
+      render json: @car, include: [:reservations]
+    else
+      render json: { message: 'Unable to find @car', errors: @cars.errors.full_messages },
+             status: :unprocessable_entity
+    end
+
   end
 
   def create
@@ -27,7 +37,7 @@ class Api::V1::CarsController < applicationController
   def destroy
     @car = Car.find(params[:id])
     if @car.destroy
-      render json: { message: 'Car deleted succesfully.' }
+      render json: { message: 'Car deleted successfully.' }
     else
       render json: { message: 'Something went wrong' }, status: :unprocessable_entity
     end
