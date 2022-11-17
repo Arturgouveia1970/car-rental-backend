@@ -1,9 +1,7 @@
 require 'swagger_helper'
 
 RSpec.describe 'api/v1/cars', type: :request do
-
   path '/api/v1/cars' do
-
     get('list cars') do
       response(200, 'successful') do
         let(:user_id) { User.create(name: 'Artur', role: 'admin', email: 'art@email.com').id }
@@ -20,26 +18,26 @@ RSpec.describe 'api/v1/cars', type: :request do
 
     post('create car') do
       tags 'Cars'
-        consumes 'application/json'
-        parameter model: :cars, in: :body, schema: {
-          type: :object,
-          properties: {
-            model: { type: :string },
-            year: { type: :integer },
-            image: { type: :string },
-            price: { type: :decimal }
-          },
-          required: %w[model year image price]
-        }
-        response(200, 'successful') do
-          let(:car) { { model: 'Mercedes', year: '2021', image: 'www.google.com', price: '350.50' } }
-          run_test!
-        end
+      consumes 'application/json'
+      parameter model: :cars, in: :body, schema: {
+        type: :object,
+        properties: {
+          model: { type: :string },
+          year: { type: :integer },
+          image: { type: :string },
+          price: { type: :decimal }
+        },
+        required: %w[model year image price]
+      }
+      response(200, 'successful') do
+        let(:car) { { model: 'Mercedes', year: '2021', image: 'www.google.com', price: '350.50' } }
+        run_test!
+      end
 
-        response '422', 'invalid request' do
-          let(:car) { { model: 'foo' } }
-          run_test!
-        end
+      response '422', 'invalid request' do
+        let(:car) { { model: 'foo' } }
+        run_test!
+      end
     end
   end
 
@@ -52,19 +50,19 @@ RSpec.describe 'api/v1/cars', type: :request do
 
       response '200', 'car found' do
         schema type: :object,
-          properties: {
-            model: { type: :string },
-            year: { type: :integer },
-            image: { type: :string },
-            price: { type: :decimal }
-          },
-          required: %w[model year image price]
+               properties: {
+                 model: { type: :string },
+                 year: { type: :integer },
+                 image: { type: :string },
+                 price: { type: :decimal }
+               },
+               required: %w[model year image price]
         let(:id) { Car.create(model: 'Mercedes', year: '2021', image: 'www.google.com', price: '350.50').id }
         run_test!
       end
 
       response '404', 'Car not found' do
-        let(:id) { 'invalid'}
+        let(:id) { 'invalid' }
         run_test!
       end
     end
@@ -82,7 +80,7 @@ RSpec.describe 'api/v1/cars', type: :request do
         required: %w[model year image price]
       }
       response(200, 'successful') do
-        let(:id) {'123'}
+        let(:id) { '123' }
         User.create(name: 'user', role: 'admin', email: 'user@gmail.com', password: '123456').id
         let(:car) do
           Car.create(model: 'Mercedes', year: '2021', image: 'www.google.com', price: '350.50').id
@@ -97,8 +95,6 @@ RSpec.describe 'api/v1/cars', type: :request do
         run_test!
       end
     end
-
-    
 
     delete('delete car') do
       response(200, 'successful') do
