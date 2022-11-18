@@ -6,16 +6,19 @@ services:
   - type: web
     name: rails
     env: ruby
-    buildCommand: "./bin/car-rental.sh"
-    startCommand: bundle exec rails s
+    buildCommand: "./bin/render-build.sh"
+    startCommand: bundle exec puma -C config/puma.rb
     envVars:
-      - key: RAILS_MASTER_KEY
-        sync: false
       - key: DATABASE_URL
         fromDatabase:
           name: postgres
           property: connectionString
-  - type: redis
-    name: redis
-    ipAllowList: []
-    maxmemoryPolicy: noeviction    
+          
+      - key: RAILS_MASTER_KEY
+        generateValue: true
+        sync: false
+      
+  # - type: redis
+  #   name: redis
+  #   ipAllowList: []
+  #   maxmemoryPolicy: noeviction    
