@@ -1,22 +1,22 @@
-databases:
-  - name: car_rental
-    databaseName: car_rental
-    user: car_rental
+# databases:
+#   - name: car_rental
+#     databaseName: car_rental
+#     user: car_rental
 
-services:
-  - type: web
-    name: car_rental
-    env: ruby
-    buildCommand: "./bin/render-build.sh"
-    startCommand: bundle exec puma -C config/puma.rb
-    envVars:
-      - key: DATABASE_URL
-        fromDatabase:
-          name: car_rental
-          property: connectionString
+# services:
+#   - type: web
+#     name: car_rental
+#     env: ruby
+#     buildCommand: "./bin/render-build.sh"
+#     startCommand: bundle exec puma -C config/puma.rb
+#     envVars:
+#       - key: DATABASE_URL
+#         fromDatabase:
+#           name: car_rental
+#           property: connectionString
 
-      - key: RAILS_MASTER_KEY
-        sync: false
+#       - key: RAILS_MASTER_KEY
+#         sync: false
       
   # - type: redis
   #   name: redis
