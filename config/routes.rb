@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
+  get '/', to: 'user#login'
   get 'login/:name', to: 'users#login'
   get 'api/v1/users/car/:id', to: 'users#user_car'
   post 'register', to: 'users#register'
