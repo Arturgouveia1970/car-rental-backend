@@ -21,6 +21,8 @@ gem 'puma', '~> 5.0'
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 
+gem 'seed-fu', '~> 2.3', '>= 2.3.9'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

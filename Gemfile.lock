@@ -230,6 +230,9 @@ GEM
     rubocop-ast (1.23.0)
       parser (>= 3.1.1.0)
     ruby-progressbar (1.11.0)
+    seed-fu (2.3.9)
+      activerecord (>= 3.1)
+      activesupport (>= 3.1)
     thor (1.2.1)
     timeout (0.3.0)
     tzinfo (2.0.5)
@@ -266,6 +269,7 @@ DEPENDENCIES
   rspec-rails
   rswag (~> 2.7)
   rubocop (>= 1.0, < 2.0)
+  seed-fu (~> 2.3, >= 2.3.9)
   tzinfo-data
 
 RUBY VERSION
