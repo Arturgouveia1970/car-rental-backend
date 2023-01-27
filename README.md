@@ -7,7 +7,7 @@
 
 ### Front-End Repository
 
-[Car Rental Front-end](soon)
+[Car Rental Front-end](https://github.com/Arturgouveia1970/car-rental-frontend)
 
 ### Kanban Board
 [Kanban Board](https://github.com/users/Arturgouveia1970/projects/7)
