@@ -128,6 +128,8 @@ Visit http://localhost:3000/api-docs in your browser.
 👤 **Artur**
 
 - GitHub: [Artur](https://github.com/Arturgouveia1970)
+- Twitter: [@Arturgouveia10](https://twitter.com/Arturgouveia10)
+- LinkedIn: [Artur Gouveia](https://www.linkedin.com/in/artur-gouveia/)
 
 👤 **Pedro**
 
