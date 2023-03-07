@@ -1,9 +1,9 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  # username: postgres
-  # password: strongone
-  # host: localhost
+  username: dev
+  password: strongone
+  host: localhost
 
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
@@ -11,8 +11,8 @@ default: &default
 development:
   <<: *default
   database: car_rental_development
-  username: artur_gouveia
-  password: strongone
+  # username: postgres
+  # password: strongone
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
