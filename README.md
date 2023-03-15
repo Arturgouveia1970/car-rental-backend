@@ -28,7 +28,7 @@
 
 ## Live version
 
-[Render](https://carrental2.onrender.com/cars)
+[Render](comming soon)
 
 ## Getting Started
 
