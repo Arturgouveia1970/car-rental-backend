@@ -266,7 +266,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   debug
-  devise
+  devise (~> 4.9)
   devise-jwt
   pg (~> 1.1)
   puma (~> 6.1, >= 6.1.1)
