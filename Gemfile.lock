@@ -263,7 +263,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  bootsnap (~> 1.16)
+  bootsnap
   debug
   devise
   devise-jwt
