@@ -258,6 +258,7 @@ GEM
     zeitwerk (2.6.7)
 
 PLATFORMS
+  ruby
   unknown
   x64-mingw-ucrt
   x86_64-linux
