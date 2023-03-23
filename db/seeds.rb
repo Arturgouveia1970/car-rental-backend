@@ -19,9 +19,9 @@ seventh_car = Car.create(model: 'Porche 911', year: '2014', price: 2200, image: 
 first_res = Reservation.create(start_date: '24-03-2023', end_date: '25-03-2023', city: 'London', user_id: 1, car_id: 17)
 second_res = Reservation.create(start_date: '29-03-2023', end_date: '30-03-2023', city: 'Lisbon', user_id: 2, car_id: 17)
 
-Car.destroy_all
-User.destroy_all
-Reservation.destroy_all
-Car.create
-User.create
-Reservation.create
+# Car.destroy_all
+# User.destroy_all
+# Reservation.destroy_all
+# Car.create
+# User.create
+# Reservation.create
