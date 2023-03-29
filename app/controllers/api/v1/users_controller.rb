@@ -1,51 +1,64 @@
 class Api::V1::UsersController < ApplicationController
-  # before_action :authorize_request
+  # before_action :authorize_request, except: %i[index create]
+  # before_action :find_user, except: %i[create index]
+
+  ALLOWED_DATA = %(name email password role).freeze
+
+  # GET /users
   def index
-    @users = User.all
-    render json: @users, status: :ok
+    users = User.all
+    render json: users, status: :ok
   end
 
-  # def register
-  #   if User.find_by(name: params[:name].to_s.downcase)
-  #     render json: { error: 'name already exists!' }
-  #   else
-  #     @user = User.new(user_params)
-  #     @user.name = @user.name.to_s.downcase
-  #     if @user.save
-  #       render json: { user: @user, logged_in: true }
-  #     else
-  #       render json: { error: 'There was an error, please try again!' }
-  #     end
-  #   end
-  # end
+  # GET /users/:id
+  def show
+    render json: @user, status: :ok
+  end
 
-  # def login
-  #   @user = User.find_by(name: params[:name].to_s.downcase)
-  #   if @user
-  #     render json: { user: @user, logged_in: true }
-  #   else
-  #     render json: { error: 'name is invalid!' }
-  #   end
-  # end
+  # POST /users
+  def create
+    data = json_payload.select { |allow| ALLOWED_DATA.include?(allow) && allow != 'role' }
+    return render json: { error: 'Empty body. Could not create user.' }, status: :unprocessable_entity if data.empty?
 
-  # def user_car
-  #   # @doctor = User.find_by(params[:id])
-  #   @user = User.find(params[:id])
-  #   @car = car.where(user_id: @user)
-  #   render json: { cars: @cars }, status: :ok
-  # end
+    user = User.new(data)
+    if user.save
+      render json: user, status: :ok
+    else
+      render json: { error: 'Could not create user.' }, status: :unprocessable_entity
+    end
+  end
 
-  # private
+  # PUT /users/:id
+  def update
+    if current_user.is? :admin
+      data = json_payload.select { |allow| ALLOWED_DATA.include?(allow) }
+      return render json: { error: 'Empty body. Could not update user.' }, status: :unprocessable_entity if data.empty?
 
-  # # use callback to share common setup or constraints between actions
-  # def set_user
-  #   @user = User.find(params[:id])
-  # rescue ActiveRecord::RecordNotFound
-  #   render json: { errors: 'User not found' }, status: :not_found
-  # end
+      if @user.update(data)
+        render json: @user, status: :ok
+      else
+        render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
+      end
+    else
+      render json: { error: 'Unauthorized.' }, status: :unauthorized
+    end
+  end
 
-  # # Only allow a list of trusted parameters through.
-  # def user_params
-  #   params.permit(:name, :email, :password)
-  # end
+  # DELETE /users/:id
+  def destroy
+    if current_user.is? :admin
+      @user.destroy
+      render json: @user, status: :ok
+    else
+      render json: { error: 'Unauthorized.' }, status: :unauthorized
+    end
+  end
+
+  private
+
+  def find_user
+    @user = User.find_by_id!(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    render json: { errors: 'User not found' }, status: :not_found
+  end
 end

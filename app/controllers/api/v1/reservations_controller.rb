@@ -12,7 +12,7 @@ class Api::V1::ReservationsController < ApplicationController
 
   # POST
   def create
-    @car = Car.find(params[:doctor_id])
+    @car = Car.find(params[:car_id])
     @reservation = Reservation.new(reservation_params)
     if @reservation.save
       render json: @reservation, status: :ok
