@@ -273,13 +273,13 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
-  config.jwt do |jwt|
-    jwt.secret = 'eyJhbGciOiJIUzI1NiJ9.eyJleGFtcGxlIjoiZGF0YSJ9.r32JslR5aN9JBEowsXwpEYwYLL7BS3j3dqlKDHYO7_A'
-    #jwt.secret = Rails.application.credentials.devise[:jwt_secret_key]
-    jwt.dispatch_requests = [['POST', %r{^/users/sign_in$}]]
-    jwt.revocation_requests = [['DELETE', %r{^/users/sign_out}]]
-    jwt.expiration_time = 24.hours.to_i
-  end
+  # config.jwt do |jwt|
+  #   jwt.secret = 'eyJhbGciOiJIUzI1NiJ9.eyJleGFtcGxlIjoiZGF0YSJ9.r32JslR5aN9JBEowsXwpEYwYLL7BS3j3dqlKDHYO7_A'
+  #   #jwt.secret = Rails.application.credentials.devise[:jwt_secret_key]
+  #   jwt.dispatch_requests = [['POST', %r{^/users/sign_in$}]]
+  #   jwt.revocation_requests = [['DELETE', %r{^/users/sign_out}]]
+  #   jwt.expiration_time = 24.hours.to_i
+  # end
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
