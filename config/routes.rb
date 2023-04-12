@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   # end
 
   root 'api/v1/users#index'
-  post 'api/v1/auth/login', to: 'authentication#login'
+  post 'api/v1/users/login', to: 'authentication#login'
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :users, only: %i[index show create update destroy] do
