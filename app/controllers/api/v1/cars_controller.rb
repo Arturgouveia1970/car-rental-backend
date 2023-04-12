@@ -1,9 +1,4 @@
 class Api::V1::CarsController < ApplicationController
-  before_action :authorize_request
-  # before_action :find_vehicle, except: %i[create index]
-
-  ALLOWED_DATA = %(model year image price).freeze
-
   def index
     @cars = Car.all
     render json: { status: 'Success', message: 'loaded cars', cars: @cars }, status: :ok
