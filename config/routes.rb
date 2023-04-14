@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   # end
 
   root 'api/v1/users#index'
-  post 'api/v1/sign_up/:name/:email/:password', to: 'users#sign_up'
+  post 'api/v1/users/sign_up/:name/:email/:password', to: 'users#sign_up'
   post 'api/v1/users/sign_in/:email/:password', to: 'users#sign_in'
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
