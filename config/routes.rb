@@ -19,10 +19,11 @@ Rails.application.routes.draw do
   # end
 
   root 'api/v1/users#index'
-  post 'api/v1/users/login', to: 'authentication#login'
+  post 'api/v1/register/:name/:email/:password', to: 'users#register'
+  post 'api/v1/users/login/:email/:password', to: 'users#login'
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :users, only: %i[index show create update destroy] do
+      resources :users, only: %i[index show create update destroy login register ] do
         resources :reservations, only: %i[index show create]
       end
       resources :cars, only: %i[index show create destroy] do
