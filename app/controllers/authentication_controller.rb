@@ -14,6 +14,6 @@ class AuthenticationController < ApplicationController
       render json: { error: 'Unauthorized' }, status: :unauthorized
     end
   rescue ActiveRecord::RecordNotFound
-    render json: { errors: 'Username not found' }, status: :not_found
+    render json: { errors: 'User not found' }, status: :not_found
   end
 end

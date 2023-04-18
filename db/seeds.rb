@@ -5,8 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-first_user = User.create(name: 'Artur', role: 'admin', email: 'art@gmail.com', password: 123456)
-second_user = User.create(name: 'Pedro', role: 'admin', email: 'pedro@gmail.com', password: 123456)
+first_user = User.create(name: 'Artur', role: 'admin', email: 'art@gmail.com', password:)
+second_user = User.create(name: 'Pedro', role: 'admin', email: 'pedro@gmail.com', password:)
 
 first_car = Car.create(model: 'Lamborgini', year: '2019', price: 2750, image: 'https://wallup.net/wp-content/uploads/2019/09/848518-2010-lamborghini-sesto-elemento-concept-supercar-748x561.jpg')
 second_car = Car.create(model: 'Mercedes', year: '2021', price: 1750, image: 'https://carsguide-res.cloudinary.com/image/upload/f_auto%2Cfl_lossy%2Cq_auto%2Ct_default/v1/editorial/2017-Vision-Mercedes-Benz-Maybach-Concept-Pebble-Beach-Blue-Cabriolet-1200x800p-1.jpg')
