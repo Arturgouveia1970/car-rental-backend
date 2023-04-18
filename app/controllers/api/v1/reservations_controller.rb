@@ -20,7 +20,7 @@ class Api::V1::ReservationsController < ApplicationController
   #     @reserved_cars = Reservation.where(date: params[:date]).distinct.pluck(:car_id)
   #     if @reserved_cars.include? params[:car_id].to_i
   #       render json: {
-  #         error: 'This car is reserved on this date, please choose another date.' 
+  #         error: 'This car is reserved on this date, please choose another date.'
   #       }, status: :not_acceptable
   #     else
   #       @reservation = Reservation.new(reservation_params)
@@ -90,13 +90,13 @@ class Api::V1::ReservationsController < ApplicationController
     render json: { errors: 'Car/Reservation not found' }, status: :not_found
   end
 
-  def show_user
-    user = User.find_by_id!(params[:user_id])
-    # reservation = user.reservations.find_by_id!(params[:id])
-    render json: booking, status: :ok
-  rescue ActiveRecord::RecordNotFound
-    render json: { errors: 'User/Booking not found' }, status: :not_found
-  end
+  # def show_user
+  #   user = User.find_by_id!(params[:user_id])
+  #   reservation = user.reservations.find_by_id!(params[:id])
+  #   render json: booking, status: :ok
+  # rescue ActiveRecord::RecordNotFound
+  #   render json: { errors: 'User/Booking not found' }, status: :not_found
+  # end
 
   def show
     params.include?('car_id') ? show_car : show_user
