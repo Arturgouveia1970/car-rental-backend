@@ -18,7 +18,7 @@ class Api::V1::UsersController < ApplicationController
   # POST /users
   def create
     data = json_payload.select { |allow| ALLOWED_DATA.include?(allow) && allow != 'role' }
-    return render json: { error: 'Empty body. Could not create user.' }, status: :unprocessable_entity if data.empty?
+    return render json: { error: 'Empty body. Could not create user.' }, status: :unprocessable_entity if data.blank?
 
     user = User.new(data)
     if user.save
@@ -32,7 +32,7 @@ class Api::V1::UsersController < ApplicationController
   def update
     if current_user.is? :admin
       data = json_payload.select { |allow| ALLOWED_DATA.include?(allow) }
-      return render json: { error: 'Empty body. Could not update user.' }, status: :unprocessable_entity if data.empty?
+      return render json: { error: 'Empty body. Could not update user.' }, status: :unprocessable_entity if data.blank?
 
       if @user.update(data)
         render json: @user, status: :ok
