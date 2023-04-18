@@ -44,7 +44,7 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
-  DELETE /users/:id
+  # DELETE /users/:id
   def destroy
     if current_user.is? :admin
       @user.destroy
