@@ -1,9 +1,12 @@
 class User < ApplicationRecord
-  # include Devise::JWT::RevocationStrategies::JTIMatcher
+  
+  # devise :database_authenticatable, :registerable,
+  #        :recoverable, :rememberable, :validatable,
+         
 
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
-         :jwt_authenticatable, jwt_revocation_strategy: self
+  has_secure_password
+
+  validates :email, presence: true, uniqueness: true
 
   has_many :cars
   has_many :reservations
