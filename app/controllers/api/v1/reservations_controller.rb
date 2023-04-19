@@ -114,7 +114,7 @@ class Api::V1::ReservationsController < ApplicationController
     render json: { errors: 'Car not found' }, status: :not_found
   end
 
-  def create_user_booking
+  def create_user_reservation
     user = User.find(params[:user_id])
     reservation = user.reservations.new(@data)
     if reservation.save
