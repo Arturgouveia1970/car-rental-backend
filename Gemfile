@@ -4,16 +4,18 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.1.2'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem 'rails', '~> 7.0.4'
+gem 'rails', '~> 7.0.5.1'
 
-gem 'devise', '~> 4.9'
+gem 'devise', '~> 4.9', '>= 4.9.2'
 
 gem 'jwt'
 
-gem 'bcrypt', '~> 3.1', '>= 3.1.18'
+gem "bcrypt", "~> 3.1.1"
+
+gem 'bcrypt-ruby', '~> 3.1', '>= 3.1.5'
 
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 1.1'
+gem 'pg', '~> 1.5.3'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 6.1', '>= 6.1.1'
@@ -25,6 +27,10 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 
 gem 'seed-fu', '~> 2.3', '>= 2.3.9'
 
+# gem 'msgpack', '~> 1.7.1'
+
+gem 'websocket-driver'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -32,13 +38,12 @@ gem 'seed-fu', '~> 2.3', '>= 2.3.9'
 # gem "kredis"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', require: false
+# gem 'bootsnap', require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
