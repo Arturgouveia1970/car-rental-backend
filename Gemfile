@@ -31,6 +31,8 @@ gem 'seed-fu', '~> 2.3', '>= 2.3.9'
 
 gem 'websocket-driver'
 
+gem 'sprockets-rails', '~> 3.4', '>= 3.4.2'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
