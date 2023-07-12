@@ -1,8 +1,8 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: dev
-  password: strongone
+  username: artur
+  password: 123456
   host: localhost
 
   # For details on connection pooling, see Rails configuration guide
@@ -10,7 +10,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 development:
   <<: *default
-  database: car_rental_development
+  database: artur_development
   # username: postgres
   # password: strongone
 
@@ -18,7 +18,7 @@ development:
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user running Rails.
-  #username: car_rental
+  #username: artur
 
   # The password associated with the postgres role (username).
   #password:
@@ -46,7 +46,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: car_rental_test
+  database: artur_test
   # username: postgres
   # password: Eduardo1!@
 
@@ -73,6 +73,6 @@ test:
 production:
  <<: *default
  url: <%= ENV["DATABASE_URL"] %>
-  # database: car_rental_production
+  # database: artur_production
   # username: dev
-  # password: <%= ENV["CAR_RENTAL_DATABASE_PASSWORD"] %>
+  # password: <%= ENV["artur_DATABASE_PASSWORD"] %>
