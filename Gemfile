@@ -8,6 +8,8 @@ gem 'rails', '~> 7.0.5.1'
 
 gem 'devise', '~> 4.9', '>= 4.9.2'
 
+# gem 'hotwire-rails', '~> 0.1.3'
+
 gem 'jwt'
 
 gem "bcrypt", "~> 3.1.1"
