@@ -1,34 +1,55 @@
 Rails.application.routes.draw do
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
-  devise_for :users
-  # devise_for :users, controllers: {
-  #   sessions: 'users/sessions'
-  # }
+  # devise_for :users
+  # # devise_for :users, controllers: {
+  # #   sessions: 'users/sessions'
+  # # }
 
-  # get '/', to: 'user#login'
-  # get 'login/:name', to: 'users#login'
-  # get 'api/v1/users/car/:id', to: 'users#user_car'
-  # post 'register', to: 'users#register'
+  # # get '/', to: 'user#login'
+  # # get 'login/:name', to: 'users#login'
+  # # get 'api/v1/users/car/:id', to: 'users#user_car'
+  # # post 'register', to: 'users#register'
 
-  # namespace :api do
+  # # namespace :api do
+  # #   namespace :v1 do
+  # #     resources :cars
+  # #     resources :reservations
+  # #   end
+  # # end
+
+  # root 'api/v1/users#index'
+  # post 'api/v1/users/sign_up/:name/:email/:password', to: 'users#sign_up'
+  # get 'api/v1/users/sign_in/:email/:password', to: 'users#sign_in'
+  # namespace :api, defaults: { format: :json } do
   #   namespace :v1 do
-  #     resources :cars
-  #     resources :reservations
+  #     resources :users, only: %i[index show create update destroy login register ] do
+  #       resources :reservations, only: %i[index show create]
+  #     end
+  #     resources :cars, only: %i[index show create destroy] do
+  #       resources :reservations, only: %i[index show create]
+  #     end
   #   end
   # end
+   # Root path
+   root to: redirect('/api-docs')
 
-  root 'api/v1/users#index'
-  post 'api/v1/users/sign_up/:name/:email/:password', to: 'users#sign_up'
-  get 'api/v1/users/sign_in/:email/:password', to: 'users#sign_in'
-  namespace :api, defaults: { format: :json } do
-    namespace :v1 do
-      resources :users, only: %i[index show create update destroy login register ] do
-        resources :reservations, only: %i[index show create]
-      end
-      resources :cars, only: %i[index show create destroy] do
-        resources :reservations, only: %i[index show create]
-      end
-    end
-  end
+   # Login and register paths
+   post 'api/v1/register/:name/:email/:password', to: 'users#register'
+   get 'api/v1/login/:email/:password', to: 'users#login'
+ 
+   # Car endpoints
+   get 'api/v1/cars', to: 'cars#index'
+   get 'api/v1/car/:id', to: 'cars#show'
+   post 'api/v1/car', to: 'cars#create'
+   delete 'api/v1/car/:id', to: 'cars#delete'
+   get 'api/v1/reserve/cars/:date', to: 'cars#reserve'
+   get 'api/v1/cars/:user_id', to: 'cars#user_cars' 
+ 
+   # Reservation endpoints
+   post 'api/v1/reservation/:user_id/:car_id/:city/:start_date', to: 'reservations#create'
+   get 'api/v1/reservations/:user_id', to: 'reservations#index'
+ 
+   # Redirect to api-docs
+   get '*path', to: redirect('/api-docs')
 end
