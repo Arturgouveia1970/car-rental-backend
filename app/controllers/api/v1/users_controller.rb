@@ -16,43 +16,43 @@ class Api::V1::UsersController < ApplicationController
   end
 
   # POST /users
-  def create
-    data = json_payload.select { |allow| ALLOWED_DATA.include?(allow) && allow != 'role' }
-    return render json: { error: 'Empty body. Could not create user.' }, status: :unprocessable_entity if data.blank?
+  # def create
+  #   data = json_payload.select { |allow| ALLOWED_DATA.include?(allow) }
+  #   return render json: { error: 'Empty body. Could not create user.' }, status: :unprocessable_entity if data.blank?
 
-    user = User.new(data)
-    if user.save
-      render json: user, status: :ok
-    else
-      render json: { error: 'Could not create user.' }, status: :unprocessable_entity
-    end
-  end
+  #   user = User.new(data)
+  #   if user.save
+  #     render json: user, status: :ok
+  #   else
+  #     render json: { error: 'Could not create user.' }, status: :unprocessable_entity
+  #   end
+  # end
 
   # PUT /users/:id
-  def update
-    if current_user.is? :admin
-      data = json_payload.select { |allow| ALLOWED_DATA.include?(allow) }
-      return render json: { error: 'Empty body. Could not update user.' }, status: :unprocessable_entity if data.blank?
+  # def update
+  #   if current_user.is? :admin
+  #     data = json_payload.select { |allow| ALLOWED_DATA.include?(allow) }
+  #     return render json: { error: 'Empty body. Could not update user.' }, status: :unprocessable_entity if data.blank?
 
-      if @user.update(data)
-        render json: @user, status: :ok
-      else
-        render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
-      end
-    else
-      render json: { error: 'Unauthorized.' }, status: :unauthorized
-    end
-  end
+  #     if @user.update(data)
+  #       render json: @user, status: :ok
+  #     else
+  #       render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
+  #     end
+  #   else
+  #     render json: { error: 'Unauthorized.' }, status: :unauthorized
+  #   end
+  # end
 
   # DELETE /users/:id
-  def destroy
-    if current_user.is? :admin
-      @user.destroy
-      render json: @user, status: :ok
-    else
-      render json: { error: 'Unauthorized.' }, status: :unauthorized
-    end
-  end
+  # def destroy
+  #   if current_user.is? :admin
+  #     @user.destroy
+  #     render json: @user, status: :ok
+  #   else
+  #     render json: { error: 'Unauthorized.' }, status: :unauthorized
+  #   end
+  # end
 
   def register
     if User.find_by(email: params[:email].downcase)
