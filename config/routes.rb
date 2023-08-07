@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
-  devise_for :users
+  # devise_for :users
   # devise_for :users, controllers: {
   #   sessions: 'users/sessions'
   # }
@@ -19,8 +19,8 @@ Rails.application.routes.draw do
   # end
 
   root 'api/v1/users#index'
-  post 'api/v1/users/sign_up/:name/:email/:password', to: 'users#sign_up'
-  get 'api/v1/users/sign_in/:email/:password', to: 'users#sign_in'
+  post 'api/v1/user/sign_up/:name/:email/:password', to: 'users#sign_up'
+  get 'api/v1/user/sign_in/:email/:password', to: 'users#sign_in'
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :users, only: %i[index show create update destroy login register ] do
