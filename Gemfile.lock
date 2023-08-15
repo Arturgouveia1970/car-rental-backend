@@ -257,7 +257,7 @@ DEPENDENCIES
   debug
   devise (~> 4.9, >= 4.9.2)
   jwt
-  pg (~> 1.5.3)
+  pg (~> 1.5, >= 1.5.3)
   puma (~> 6.1, >= 6.1.1)
   rack-cors
   rails (~> 7.0.5.1)
