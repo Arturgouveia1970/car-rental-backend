@@ -5,8 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-first_user = User.create(name: 'Artur', role: 'admin', email: 'art@gmail.com')
-second_user = User.create(name: 'Pedro', role: 'admin', email: 'pedro@gmail.com')
+# first_user = User.create(name: 'Artur', role: 'admin', email: 'art@gmail.com')
+# second_user = User.create(name: 'Pedro', role: 'admin', email: 'pedro@gmail.com')
 
 first_car = Car.create(model: 'Lamborgini', year: '2019', price: 2750, image: 'https://wallup.net/wp-content/uploads/2019/09/848518-2010-lamborghini-sesto-elemento-concept-supercar-748x561.jpg')
 second_car = Car.create(model: 'Mercedes', year: '2021', price: 1750, image: 'https://carsguide-res.cloudinary.com/image/upload/f_auto%2Cfl_lossy%2Cq_auto%2Ct_default/v1/editorial/2017-Vision-Mercedes-Benz-Maybach-Concept-Pebble-Beach-Blue-Cabriolet-1200x800p-1.jpg')
@@ -19,9 +19,9 @@ seventh_car = Car.create(model: 'Porche 911', year: '2014', price: 2200, image: 
 first_res = Reservation.create(start_date: '24-03-2023', end_date: '25-03-2023', city: 'London', user_id: 7, car_id: 185)
 second_res = Reservation.create(start_date: '29-03-2023', end_date: '30-03-2023', city: 'Lisbon', user_id: 8, car_id: 186)
 
-User.destroy_all
-User.create
-Car.destroy_all
-Car.create
-Reservation.destroy_all
-Reservation.create
+# User.destroy_all
+# User.create
+# Car.destroy_all
+# Car.create
+# Reservation.destroy_all
+# Reservation.create
