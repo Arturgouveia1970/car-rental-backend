@@ -5,15 +5,15 @@ class Api::V1::UsersController < ApplicationController
   # ALLOWED_DATA = %(name email password).freeze
 
   # GET /users
-  def index
-    users = User.all
-    render json: users, status: :ok
-  end
+  # def index
+  #   users = User.all
+  #   render json: users, status: :ok
+  # end
 
   # GET /users/:id
-  def show
-    render json: @user, status: :ok
-  end
+  # def show
+  #   render json: @user, status: :ok
+  # end
 
   # POST /users
   # def create
@@ -79,9 +79,7 @@ class Api::V1::UsersController < ApplicationController
 
   private
 
-  def find_user
-    @user = User.find_by_id!(params[:id])
-  rescue ActiveRecord::RecordNotFound
-    render json: { errors: 'User not found' }, status: :not_found
+  def user_params
+    params.permit(:name, :email)
   end
 end
