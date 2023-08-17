@@ -2,7 +2,7 @@ class Api::V1::UsersController < ApplicationController
   # before_action :authorize_request, except: %i[index create]
   # before_action :find_user, except: %i[create index]
 
-  ALLOWED_DATA = %(name email password).freeze
+  # ALLOWED_DATA = %(name email password).freeze
 
   # GET /users
   def index
@@ -56,7 +56,7 @@ class Api::V1::UsersController < ApplicationController
 
   def register
     if User.find_by(email: params[:email].downcase)
-      render json: { error: 'Useremail already exists! please choose another one.' }, status: :not_acceptable
+      render json: { error: 'UserEmail already exists! please choose another one.' }, status: :not_acceptable
     else
       @user = User.new(user_params)
       @user.email = @user.email.downcase
