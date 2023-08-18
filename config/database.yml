@@ -70,9 +70,16 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+# production:
+#  <<: *default
+#  url: <%= ENV["DATABASE_URL"] %>
+#   # database: artur_production
+#   # username: dev
+#   # password: <%= ENV["artur_DATABASE_PASSWORD"] %>
+
 production:
  <<: *default
  url: <%= ENV["DATABASE_URL"] %>
-  # database: artur_production
-  # username: dev
-  # password: <%= ENV["artur_DATABASE_PASSWORD"] %>
+ database: car-rental-backend_production
+ username: artur
+ password: <%= ENV["artur_DATABASE_PASSWORD"] %>
