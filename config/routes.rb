@@ -20,9 +20,12 @@ Rails.application.routes.draw do
 
   root to: redirect('/api-docs')
 
-
+  # register and login endpoints
   post 'api/v1/register/:name/:email', to: 'users#register'
   get 'api/v1/users/login/:email', to: 'users#login'
+  # Reservation endpoints
+  # post 'api/v1/reservation/:user_id/:car_id/:city/:start_date', to: 'reservations#create'
+  # get 'api/v1/reservations/:user_id', to: 'reservations#index'
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :users, only: %i[index show create update destroy register login ] do
