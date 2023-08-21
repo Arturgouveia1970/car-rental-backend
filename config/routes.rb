@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   #     end
   # end
 
-  Car endpoints
+  # Car endpoints
   get 'api/v1/cars', to: 'cars#index'
   get 'api/v1/car/:id', to: 'cars#show'
   post 'api/v1/car', to: 'cars#create'
@@ -32,6 +32,6 @@ Rails.application.routes.draw do
   get 'api/v1/reservations/:user_id', to: 'reservations#index'
 
 
-  Redirect to api-docs
+  # Redirect to api-docs
   get '*path', to: redirect('/api-docs')
 end
