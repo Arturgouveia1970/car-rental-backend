@@ -9,15 +9,15 @@ Rails.application.routes.draw do
   get 'api/v1/users/login/:email', to: 'users#login'
   
 
-  # namespace :api, defaults: { format: :json } do
-  #   namespace :v1 do
-  #     resources :users, only: %i[index show create update destroy register login ] do
-  #       resources :reservations, only: %i[index show create]
-  #     end
-  #     resources :cars, only: %i[index show create destroy] do
-  #       resources :reservations, only: %i[index show create]
-  #     end
-  # end
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :users, only: %i[index show create update destroy register login ] do
+        resources :reservations, only: %i[index show create]
+      end
+      resources :cars, only: %i[index show create destroy] do
+        resources :reservations, only: %i[index show create]
+      end
+  end
 
   # Car endpoints
   get 'api/v1/cars', to: 'cars#index'
