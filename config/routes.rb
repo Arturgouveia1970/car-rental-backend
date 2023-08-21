@@ -23,14 +23,14 @@ Rails.application.routes.draw do
   get 'api/v1/reserve/cars/:date', to: 'cars#reserve'
   get 'api/v1/cars/:user_id', to: 'cars#user_cars'
 
-  namespace :api, defaults: { format: :json } do
-    namespace :v1 do
-      resources :users, only: %i[index show create update destroy register login ] do
-        resources :reservations, only: %i[index show create]
-      end
-      resources :cars, only: %i[index show create destroy] do
-        resources :reservations, only: %i[index show create]
-      end
-    end
-  end
+  # namespace :api, defaults: { format: :json } do
+  #   namespace :v1 do
+  #     resources :users, only: %i[index show create update destroy register login ] do
+  #       resources :reservations, only: %i[index show create]
+  #     end
+  #     resources :cars, only: %i[index show create destroy] do
+  #       resources :reservations, only: %i[index show create]
+  #     end
+  #   end
+  # end
 end
