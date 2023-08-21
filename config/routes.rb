@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   post 'api/v1/register/:name/:email', to: 'users#register'
   get 'api/v1/users/login/:email', to: 'users#login'
   # Reservation endpoints
+  post 'api/v1/reservation/:user_id/:car_id/:city/:date', to: 'reservations#create'
+  get 'api/v1/reservations/:user_id', to: 'reservations#index'
   
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
@@ -28,9 +30,8 @@ Rails.application.routes.draw do
   # get 'api/v1/cars/:user_id', to: 'cars#user_cars' 
 
   # Reservation endpoints
-  post 'api/v1/reservation/:user_id/:car_id/:city/:date', to: 'reservations#create'
-  get 'api/v1/reservations/:user_id', to: 'reservations#index'
+  
 
   # Redirect to api-docs
-  get '*path', to: redirect('/api-docs')
+  # get '*path', to: redirect('/api-docs')
 end
