@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   post 'api/v1/reservation/:user_id/:car_id/:city/:start_date', to: 'reservations#create'
   get 'api/v1/reservations/:user_id', to: 'reservations#index'
 
+  # Redirect to api-docs
+  get '*path', to: redirect('/api-docs')
+
   # namespace :api, defaults: { format: :json } do
   #   namespace :v1 do
   #     resources :users, only: %i[index show create update destroy register login ] do
