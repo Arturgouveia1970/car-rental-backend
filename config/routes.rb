@@ -23,3 +23,5 @@ Rails.application.routes.draw do
         resources :reservations, only: %i[index show create]
       end
   end
+
+end
