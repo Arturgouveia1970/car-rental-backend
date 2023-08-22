@@ -16,8 +16,8 @@ fifth_car = Car.create(user_id: first_user.id, model: 'Nissan GT-R', year: '2015
 sixth_car = Car.create(user_id: second_user.id, model: 'Ford GT', year: '2016', price: 1550, image: 'https://media.gettyimages.com/id/1406533077/photo/the-ford-gt.jpg?s=612x612&w=gi&k=20&c=QT009xEgUUa3CgCqS5PSisBGOqtjS_ND1lpMoBGPBFI=')
 seventh_car = Car.create(user_id: first_user.id, model: 'Porche 911', year: '2014', price: 2200, image: 'https://www.pixelstalk.net/wp-content/uploads/2016/09/HD-Porsche-911-Wallpaper.jpeg')
 
-first_res = Reservation.create(start_date: '24-03-2023', end_date: '25-03-2023', city: 'London', user_id: first_user.id, car_id: 2)
-second_res = Reservation.create(start_date: '29-03-2023', end_date: '30-03-2023', city: 'Lisbon', user_id: second_user.id, car_id: 1)
+first_res = Reservation.create(start_date: '24-03-2023', end_date: '25-03-2023', city: 'London', user_id: first_user.id)
+second_res = Reservation.create(start_date: '29-03-2023', end_date: '30-03-2023', city: 'Lisbon', user_id: second_user.id)
 
 # User.destroy_all
 # User.create
