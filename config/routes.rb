@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'api/v1/car/:id', to: 'cars#show'
   post 'api/v1/car', to: 'cars#create'
   delete 'api/v1/car/:id', to: 'cars#delete'
-  get 'api/v1/reserve/cars/:date', to: 'cars#reserve'
+  get 'api/v1/reserve/cars/:start_date', to: 'cars#reserve'
   get 'api/v1/cars/:user_id', to: 'cars#user_cars'
 
   # Reservation endpoints
