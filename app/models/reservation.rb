@@ -3,6 +3,5 @@ class Reservation < ApplicationRecord
   belongs_to :car, class_name: 'Car', foreign_key: 'car_id'
 
   validates :start_date, presence: true
-  validates :end_date, presence: true
   validates :city, presence: true
 end

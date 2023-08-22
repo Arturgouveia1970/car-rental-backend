@@ -1,7 +1,9 @@
 class Car < ApplicationRecord
-  has_many :reservations, dependent: :destroy
-  has_many :users, through: :reservations
+  belongs_to :user
+  has_many :reservations
 
-  validates :model, :year, presence: true
+  validates :model, presence: true
   validates :price, presence: true, numericality: { greater_than: 0 }
+  validates :image, presence: true
+  validates :year, presence: true
 end

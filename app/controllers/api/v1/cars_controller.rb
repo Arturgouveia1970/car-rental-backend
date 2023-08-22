@@ -5,18 +5,8 @@ class Api::V1::CarsController < ApplicationController
   end
 
   def show
-    # @car = Car.includes(:reservations).find(params[:id])
-    # @reservations = @car.reservations.order(created_at: :desc)
-    # render json: { status: 'Success', message: 'loaded car', car: @car, reservations: @reservations },
-    #        status: :ok
-
     @car = Car.find(params[:id])
-    if @car
-      render json: @car, include: [:reservations]
-    else
-      render json: { message: 'Unable to find @car', errors: @cars.errors.full_messages },
-             status: :unprocessable_entity
-    end
+    render json: { car: @car }, status: :ok
   end
 
   def create
@@ -41,6 +31,13 @@ class Api::V1::CarsController < ApplicationController
     end
   end
 
+  def reserve
+    @reserved_cars = Reservation.where(date: params[:date]).distinct.pluck(:car_id)
+    @cars = Car.all
+    @cars = @cars.reject { |car| @reserved_cars.include?(car.id) } unless @reserved_cars.empty?
+    render json: { cars: @cars }, status: :ok
+  end
+
   def update
     @car = Car.find(params[:id])
     if @car.update(car_params)
@@ -48,6 +45,11 @@ class Api::V1::CarsController < ApplicationController
     else
       render json: { message: 'Something went wrong' }, status: :unprocessable_entity
     end
+  end
+
+  def user_cars
+    @cars = User.find(params[:user_id]).cars
+    render json: { cars: @cars }, status: :ok
   end
 
   private
