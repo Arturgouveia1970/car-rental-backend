@@ -1,4 +1,4 @@
-class ReservationsController < ApplicationController
+class Api::V1::ReservationsController < ApplicationController
   def create
     @reserved_cars = Reservation.where(start_date: params[:start_datedate]).distinct.pluck(:car_id)
     if @reserved_cars.include? params[:car_id].to_i
