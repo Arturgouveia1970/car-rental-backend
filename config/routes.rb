@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get 'api/v1/cars/:user_id', to: 'cars#user_cars'
 
   # Reservation endpoints
-  post 'api/v1/reservation/:user_id/:car_id/:city/:start_date', to: 'reservations#create'
+  post 'api/v1/reservation/:user_id/:car_id/:city/:start_date/:end_date', to: 'reservations#create'
   get 'api/v1/reservations/:user_id', to: 'reservations#index'
 
   # Redirect to api-docs
