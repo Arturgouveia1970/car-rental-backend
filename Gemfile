@@ -12,7 +12,7 @@ gem 'rails', '~> 7.0.5.1'
 
 gem 'jwt'
 
-gem "bcrypt", "~> 3.1.1"
+gem 'bcrypt', '~> 3.1.1'
 
 # gem 'bcrypt-ruby', '~> 3.1', '>= 3.1.5'
 

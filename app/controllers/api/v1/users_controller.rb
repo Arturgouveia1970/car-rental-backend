@@ -32,7 +32,7 @@ class Api::V1::UsersController < ApplicationController
   # def update
   #   if current_user.is? :admin
   #     data = json_payload.select { |allow| ALLOWED_DATA.include?(allow) }
-  #     return render json: { error: 'Empty body. Could not update user.' }, status: :unprocessable_entity if data.blank?
+  # return render json: { error: 'Empty body. Could not update user.' }, status: :unprocessable_entity if data.blank?
 
   #     if @user.update(data)
   #       render json: @user, status: :ok
