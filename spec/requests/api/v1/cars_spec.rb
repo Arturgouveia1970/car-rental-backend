@@ -4,7 +4,7 @@ RSpec.describe 'api/v1/cars', type: :request do
   path '/api/v1/cars' do
     get('list cars') do
       response(200, 'successful') do
-        let(:user_id) { User.create(name: 'Artur', role: 'admin', email: 'art@email.com').id }
+        let(:user_id) { User.create(name: 'Artur', email: 'art@email.com').id }
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
@@ -25,12 +25,13 @@ RSpec.describe 'api/v1/cars', type: :request do
           model: { type: :string },
           year: { type: :integer },
           image: { type: :string },
-          price: { type: :decimal }
+          price: { type: :decimal },
+          user_id: { type: :integer }
         },
         required: %w[model year image price]
       }
       response(200, 'successful') do
-        let(:car) { { model: 'Mercedes', year: '2021', image: 'www.google.com', price: '350.50' } }
+        let(:car) { { model: 'Mercedes', year: '2021', image: 'www.google.com', price: '350.50', user_id: '1' } }
         run_test!
       end
 
@@ -54,10 +55,11 @@ RSpec.describe 'api/v1/cars', type: :request do
                  model: { type: :string },
                  year: { type: :integer },
                  image: { type: :string },
-                 price: { type: :decimal }
+                 price: { type: :decimal },
+                 user_id: { type: :integer }
                },
                required: %w[model year image price]
-        let(:id) { Car.create(model: 'Mercedes', year: '2021', image: 'www.google.com', price: '350.50').id }
+        let(:id) { Car.create(model: 'Mercedes', year: '2021', image: 'www.google.com', price: '350.50', user_id: '1').id }
         run_test!
       end
 
@@ -75,15 +77,16 @@ RSpec.describe 'api/v1/cars', type: :request do
           model: { type: :string },
           year: { type: :integer },
           image: { type: :string },
-          price: { type: :decimal }
+          price: { type: :decimal },
+          user_id: { type: :integer }
         },
-        required: %w[model year image price]
+        required: %w[model year image price user:id]
       }
       response(200, 'successful') do
         let(:id) { '123' }
-        User.create(name: 'user', role: 'admin', email: 'user@gmail.com', password: '123456').id
+        User.create(name: 'user', email: 'user@gmail.com').id
         let(:car) do
-          Car.create(model: 'Mercedes', year: '2021', image: 'www.google.com', price: '350.50').id
+          Car.create(model: 'Mercedes', year: '2021', image: 'www.google.com', price: '350.50', user_id: '1').id
         end
         after do |example|
           example.metadata[:response][:content] = {
