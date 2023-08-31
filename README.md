@@ -1,9 +1,9 @@
 # Car Rental Backend
 
-> Car Rental Backend is a rails backend application for booking Cars. This application serves as API endpoints for the frontend and users can load, create, and delete Cars, as well as add reservations. Users need to sign up or sign in to access the API endponits. They can sign up or sign in using the API endponts.
+> Car Rental Backend is a rails backend application for booking Cars. This application serves as API endpoints for the frontend users to load, create, and delete Cars, as well as make reservations. Users need to sign up and/or sign in to access the API endpoints. They can sign up or sign in using the API endpoints.
 
 ## Schema
-![](./app/assets/images/diagram.png)
+![](https://lucid.app/lucidchart/b38c1893-dc6c-4a46-b44e-93d928b28d44/edit?viewport_loc=264%2C90%2C1702%2C1481%2C0_0&invitationId=inv_4871ed1f-cb73-4cc6-85bb-1efb50dd92b5)
 
 ### Front-End Repository
 
@@ -28,7 +28,7 @@
 
 ## Live version
 
-[Render](comming soon)
+[Render](https://dreamcars2.onrender.com/api/v1/cars)
 
 ## Getting Started
 
