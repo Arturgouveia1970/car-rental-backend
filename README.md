@@ -1,6 +1,6 @@
 # Car Rental Backend
 
-> Car Rental Backend is a rails backend application for booking Cars. This application serves as API endpoints for the frontend and users can load, create, and delete Cars, as well as add reservations. Users need to sign up or sign in to access the API endponits. They can sign up or sign in using the API endponts.
+> Car Rental Backend is a rails backend application for booking Cars. This application serves as an API endpoints for the front end and users can reserve, add, and delete Cars, as well as add reservations. Users need to sign up or sign in to access the API endpoints. They can sign up or sign in using the API endpoints.
 
 ## Schema
 ![](./app/assets/images/diagram.png)
@@ -22,13 +22,13 @@
 ## Built With
 
 - Major languages (Ruby)
-- Framworks (Ruby on Rails)
+- Frameworks (Ruby on Rails)
 - Testing library (Rspec)
 - API docs (Rswag)
 
 ## Live version
 
-[Render](comming soon)
+[Render](https://dreamcars2.onrender.com/api/v1/car)
 
 ## Getting Started
 
@@ -40,7 +40,7 @@ To get a local copy up and running follow these simple example steps.
 ### Install
 - Ruby
 - Ruby on Rails
-- PostgresSQL
+- PostgreSQL
 
 ### Using it Locally
 
@@ -52,7 +52,7 @@ cd car-rental-backend
 
 ### Setup
 
-Add your username & password in `database.yml` file:
+Add your username & password in the `database.yml` file:
 ```
 username: <your_username>
 password: <your_password>
@@ -77,7 +77,7 @@ rails db:seed
 ```
 ### Usage
 
-Start server with:
+Start the server with:
 
 ```
 rails server -p 3000
@@ -93,7 +93,7 @@ Install npm with:
 npm install
 ```
 
-Install rspec with:
+Install RSpec with:
 
 ```
 bundle install
