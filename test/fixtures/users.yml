@@ -2,8 +2,8 @@
 
 one:
   name: MyString
-  role: MyString
+  email: MyString
 
 two:
   name: MyString
-  role: MyString
+  email: MyString
