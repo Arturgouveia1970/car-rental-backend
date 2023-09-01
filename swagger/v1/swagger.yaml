@@ -34,6 +34,8 @@ paths:
                   type: string
                 price:
                   type: decimal
+                user_id:
+                  type: integer
               required:
               - model
               - year
@@ -67,6 +69,8 @@ paths:
                     type: string
                   price:
                     type: decimal
+                  user_id:
+                    type: integer
                 required:
                 - model
                 - year
