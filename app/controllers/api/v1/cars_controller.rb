@@ -57,4 +57,4 @@ class Api::V1::CarsController < ApplicationController
 #   def car_params
 #     params.permit(:model, :year, :image, :price, :user_id)
 #   end
-# end
+end
