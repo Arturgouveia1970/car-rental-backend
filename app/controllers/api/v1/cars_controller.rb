@@ -22,12 +22,12 @@ class Api::V1::CarsController < ApplicationController
     end
   end
 
-  def destroy
+  def delete
     @car = Car.find(params[:id])
-    if @car.destroy
-      render json: { message: 'Car deleted successfully.' }
+    if @car.destroy!
+      render json: { :success ' The car has been deleted successfully.' }, status: :ok
     else
-      render json: { message: 'Something went wrong' }, status: :unprocessable_entity
+      render json: { error: 'Something went wrong, please try again!' }, status: :unprocessable_entity
     end
   end
 
@@ -55,6 +55,6 @@ class Api::V1::CarsController < ApplicationController
   private
 
   def car_params
-    params.require(:car).permit(:model, :year, :image, :price, :user_id)
+    params.permit(:model, :year, :image, :price, :user_id)
   end
 end
