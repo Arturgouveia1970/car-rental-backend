@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+
+
 ruby '3.1.2'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
@@ -18,6 +20,8 @@ gem 'bcrypt', '~> 3.1.1'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.5', '>= 1.5.3'
+
+gem 'database_cleaner', '~> 2.0', '>= 2.0.2'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 6.1', '>= 6.1.1'
