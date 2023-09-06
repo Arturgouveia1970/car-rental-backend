@@ -21,9 +21,9 @@
 
 # User.destroy_all
 # User.create
-Car.destroy_all
+# Car.destroy_all
 # Car.delete_all
 # Car.create
-Reservation.destroy_all
+# Reservation.destroy_all
 # Reservation.delete_all
 # Reservation.create
