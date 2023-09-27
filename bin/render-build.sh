@@ -6,4 +6,4 @@ bundle install
 # bundle exec rake assets:precompile
 # bundle exec rake assets:clean
 bundle exec rails db:migrate
-bundle exec rails db:seed
+# bundle exec rails db:seed

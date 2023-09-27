@@ -3,9 +3,9 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-# first_user = User.create(name: 'zeza', email: 'zeza@gmail.com')
+# movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
+# Character.create(name: "Luke", movie: movies.first)
+# first_user = User.create(name: 'Artur', email: 'artgouveiag@gmail.com')
 # second_user = User.create(name: 'majo', email: 'majo@gmail.com')
 
 # first_car = Car.create(user_id: 1, model: 'Lamborgini', year: '2019', price: 2750, image: 'https://wallup.net/wp-content/uploads/2019/09/848518-2010-lamborghini-sesto-elemento-concept-supercar-748x561.jpg')
