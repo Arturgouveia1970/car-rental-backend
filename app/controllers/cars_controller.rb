@@ -19,7 +19,7 @@ class CarsController < ApplicationController
 
   def destroy
     @car = Car.find(params[:id])
-    if @car.destroy!
+    if @car.destroy
       render json: { success: 'The car has been deleted successfully' }, status: :ok
     else
       render json: { error: 'There was an error, please try again!' }, status: :internal_server_error
