@@ -23,7 +23,7 @@ seventh_car = Car.create(user_id: 1, model: 'Porche 911', year: '2014', price: 2
 # User.create
 # Car.destroy_all
 # Car.delete_all
-Car.create
+# Car.create
 # Reservation.destroy_all
 # Reservation.delete_all
 # Reservation.create
